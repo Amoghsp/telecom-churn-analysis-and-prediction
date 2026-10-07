@@ -134,14 +134,20 @@ Risk Level: High
 ```
 > Because class weighting inflates predicted probabilities, treat the probability as a risk score rather than an exact likelihood.
 
-## **🛠️ Technologies Used**
-- **Programming & analysis:** Python, Pandas, NumPy
-- **Visualization:** Matplotlib, Seaborn
-- **Machine learning:** Scikit-learn, XGBoost
-- **Techniques:** Data cleaning, EDA, feature engineering, one-hot encoding, feature scaling, classification, GridSearchCV, model evaluation, feature importance
-
-## **📂 Project Structure**
-```
+🚀 How to Run
+bash
+git clone https://github.com/<your-username>/telecom-churn-analysis-and-prediction.git
+cd telecom-churn-analysis-and-prediction
+pip install -r requirements.txt
+jupyter notebook
+Run Customer_churn_analysis.ipynb first. It reads the raw data and creates Customer churn analysis.csv.
+Then run Customer_churn_prediction.ipynb, which uses the cleaned file.
+🛠️ Technologies Used
+Programming & analysis: Python, Pandas, NumPy
+Visualization: Matplotlib, Seaborn
+Machine learning: Scikit-learn, XGBoost
+Techniques: Data cleaning, EDA, feature engineering, one-hot encoding, feature scaling, classification, GridSearchCV, model evaluation, feature importance
+📂 Project Structure
 telecom-churn-analysis-and-prediction/
 │
 ├── Customer_churn_analysis.ipynb      # cleaning, feature engineering, EDA
@@ -151,14 +157,24 @@ telecom-churn-analysis-and-prediction/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-```
 
-## **🔭 Future Improvements**
-- Test additional classification algorithms
-- Calibrate predicted probabilities
-- Optimize the classification threshold based on business costs
-- Expand hyperparameter search and cross-validation
-- Deploy the model through a Streamlit application
+💡 Business Value
+Identify customer segments with higher churn risk
+Understand relationships between contracts, tenure, services and billing
+Prioritize customers who may need retention efforts
+Provide probability-based churn predictions
 
-## **📚 Dataset Credit**
+This is a portfolio-level analytical and predictive workflow rather than a production deployment.
+
+⚠️ Limitations
+The analysis shows relationships, not causes
+The final model was selected using test-set results; cross-validated comparison would be more rigorous
+🔭 Future Improvements
+Test additional classification algorithms
+Calibrate predicted probabilities
+Optimize the classification threshold based on business costs
+Expand hyperparameter search and cross-validation
+Deploy the model through a Streamlit application
+📚 Dataset Credit
+
 Telco Customer Churn dataset (IBM sample data), available on Kaggle.
