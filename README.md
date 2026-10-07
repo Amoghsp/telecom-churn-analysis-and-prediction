@@ -1,6 +1,7 @@
 # telecom-churn-analysis-and-prediction
 
-## **⭐ Key Highlights**
+<h2><b>⭐ Key Highlights</b></h2>
+
 
 | | |
 |---|---|
@@ -12,12 +13,14 @@
 | **Final performance** | 84.02% ROC-AUC, 80.48% recall, 60.99% F1 |
 | **Tools** | Python, Pandas, NumPy, Seaborn, Scikit-learn, XGBoost |
 
-## **📌 Project Overview**
+<h2><b>📌 Project Overview</b></h2>
+
 Customer churn is a major business problem for telecom companies because losing existing customers affects revenue and growth.
 
 This project combines **Exploratory Data Analysis (EDA)** and **Machine Learning** to understand customer churn patterns and predict which customers are likely to churn. It analyzes 7,032 telecom customer records and compares Logistic Regression, Decision Tree, Random Forest and XGBoost models.
 
-## **🎯 Project Objectives**
+<h2><b>🎯 Project Objectives</b></h2>
+
 - Understand key factors associated with customer churn
 - Clean and prepare telecom customer data
 - Perform exploratory data analysis
@@ -27,7 +30,8 @@ This project combines **Exploratory Data Analysis (EDA)** and **Machine Learning
 - Evaluate models using Accuracy, Precision, Recall, F1 Score and ROC-AUC
 - Generate churn probability and risk levels for new customers
 
-## **📊 Dataset**
+<h2><b>📊 Dataset</b></h2>
+
 Telco Customer Churn dataset (IBM sample data, publicly available on Kaggle).
 
 - Raw data: 7,043 customers and 21 columns
@@ -36,10 +40,12 @@ Telco Customer Churn dataset (IBM sample data, publicly available on Kaggle).
 - Target: `Churn` (Yes = churned, No = stayed)
 - Feature categories: demographics, tenure, phone and internet services, online security and backup, device protection, tech support, streaming, contract type, paperless billing, payment method, monthly and total charges
 
-## **🔎 Exploratory Data Analysis**
+<h2><b>🔎 Exploratory Data Analysis</b></h2>
+
 Churn was examined across demographics, tenure, contracts, services and billing behavior.
 
-### **Feature Engineering**
+<h3><b>Feature Engineering</b></h3>
+
 **TenureGroup**
 
 | Tenure | Group |
@@ -60,7 +66,8 @@ Churn was examined across demographics, tenure, contracts, services and billing 
 | Above 60 to 90 | High |
 | Above 90 to 120 | Very High |
 
-### **Key Findings**
+<h3><b>Key Findings</b></h3>
+
 - About 1 in 4 customers churned (26.6%)
 - **Contract type matters most:** month-to-month customers churn at **42.7%**, one-year at 11.3% and two-year at only **2.9%**
 - **Highest-risk segment:** month-to-month fiber-optic users at **54.6%**
@@ -68,7 +75,8 @@ Churn was examined across demographics, tenure, contracts, services and billing 
 - Churned customers paid more per month on average (about $74 vs $61); high and very high charge groups churn at roughly 33-34%
 - Customers without tech support, those paying by electronic check, senior citizens, and those without a partner or dependents also showed higher churn
 
-## **🤖 Machine Learning Workflow**
+<h2><b>🤖 Machine Learning Workflow</b></h2>
+
 ```
 Cleaned Data
     ↓
@@ -89,18 +97,22 @@ Feature Importance
 New Customer Prediction
 ```
 
-### **Data Preprocessing**
+<h3><b>Data Preprocessing</b></h3>
+
 - Scikit-learn `ColumnTransformer`: `StandardScaler` for numeric features, `OneHotEncoder` for categorical features
 - Scikit-learn `Pipeline` combining preprocessing and model training (preprocessing is fitted on training data only)
 - Stratified 80/20 train-test split
 
-### **Models Compared**
+<h3><b>Models Compared</b></h3>
+
 Logistic Regression, Decision Tree, Random Forest, XGBoost, and a tuned XGBoost.
 
-### **⚙️ XGBoost Hyperparameter Tuning**
+<h3><b>⚙️ XGBoost Hyperparameter Tuning</b></h3>
+
 Tuned with `GridSearchCV` (3-fold, F1 scoring) over `n_estimators`, `max_depth` and `learning_rate`. Class weighting (`scale_pos_weight`) was used to address class imbalance.
 
-## **📈 Model Results (Test Set)**
+<h2><b>📈 Model Results (Test Set)</b></h2>
+
 
 | Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
 |---|---|---|---|---|---|
@@ -110,7 +122,8 @@ Tuned with `GridSearchCV` (3-fold, F1 scoring) over `n_estimators`, `max_depth` 
 | XGBoost | 0.7946 | 0.6341 | 0.5374 | 0.5818 | 0.8399 |
 | **Tuned XGBoost** | 0.7264 | 0.4910 | **0.8048** | **0.6099** | **0.8402** |
 
-### **Final Model: Tuned XGBoost**
+<h3><b>Final Model: Tuned XGBoost</b></h3>
+
 | Metric | Score |
 |---|---|
 | Accuracy | 72.64% |
@@ -119,12 +132,14 @@ Tuned with `GridSearchCV` (3-fold, F1 scoring) over `n_estimators`, `max_depth` 
 | F1 Score | 60.99% |
 | ROC-AUC | 84.02% |
 
-### **Why Recall Matters**
+<h3><b>Why Recall Matters</b></h3>
+
 For churn prediction, missing a customer who is likely to leave is costly. The final model therefore emphasizes recall and identifies about 80% of customers who actually churn.
 
 The trade-off is lower precision (49%), meaning more false alarms. This is usually acceptable when a retention offer costs less than losing a customer.
 
-## **🔮 Customer Churn Prediction**
+<h2><b>🔮 Customer Churn Prediction</b></h2>
+
 For a new customer, the workflow produces a churn prediction, churn probability and risk level.
 
 ```
@@ -134,20 +149,27 @@ Risk Level: High
 ```
 > Because class weighting inflates predicted probabilities, treat the probability as a risk score rather than an exact likelihood.
 
-🚀 How to Run
-bash
+<h2><b>🚀 How to Run</b></h2>
+
+```bash
 git clone https://github.com/<your-username>/telecom-churn-analysis-and-prediction.git
 cd telecom-churn-analysis-and-prediction
 pip install -r requirements.txt
 jupyter notebook
-Run Customer_churn_analysis.ipynb first. It reads the raw data and creates Customer churn analysis.csv.
-Then run Customer_churn_prediction.ipynb, which uses the cleaned file.
-🛠️ Technologies Used
-Programming & analysis: Python, Pandas, NumPy
-Visualization: Matplotlib, Seaborn
-Machine learning: Scikit-learn, XGBoost
-Techniques: Data cleaning, EDA, feature engineering, one-hot encoding, feature scaling, classification, GridSearchCV, model evaluation, feature importance
-📂 Project Structure
+```
+1. Run `Customer_churn_analysis.ipynb` first. It reads the raw data and creates `Customer churn analysis.csv`.
+2. Then run `Customer_churn_prediction.ipynb`, which uses the cleaned file.
+
+<h2><b>🛠️ Technologies Used</b></h2>
+
+- **Programming & analysis:** Python, Pandas, NumPy
+- **Visualization:** Matplotlib, Seaborn
+- **Machine learning:** Scikit-learn, XGBoost
+- **Techniques:** Data cleaning, EDA, feature engineering, one-hot encoding, feature scaling, classification, GridSearchCV, model evaluation, feature importance
+
+<h2><b>📂 Project Structure</b></h2>
+
+```
 telecom-churn-analysis-and-prediction/
 │
 ├── Customer_churn_analysis.ipynb      # cleaning, feature engineering, EDA
@@ -157,24 +179,30 @@ telecom-churn-analysis-and-prediction/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
 
-💡 Business Value
-Identify customer segments with higher churn risk
-Understand relationships between contracts, tenure, services and billing
-Prioritize customers who may need retention efforts
-Provide probability-based churn predictions
+<h2><b>💡 Business Value</b></h2>
+
+- Identify customer segments with higher churn risk
+- Understand relationships between contracts, tenure, services and billing
+- Prioritize customers who may need retention efforts
+- Provide probability-based churn predictions
 
 This is a portfolio-level analytical and predictive workflow rather than a production deployment.
 
-⚠️ Limitations
-The analysis shows relationships, not causes
-The final model was selected using test-set results; cross-validated comparison would be more rigorous
-🔭 Future Improvements
-Test additional classification algorithms
-Calibrate predicted probabilities
-Optimize the classification threshold based on business costs
-Expand hyperparameter search and cross-validation
-Deploy the model through a Streamlit application
-📚 Dataset Credit
+<h2><b>⚠️ Limitations</b></h2>
+
+- The analysis shows relationships, not causes
+- The final model was selected using test-set results; cross-validated comparison would be more rigorous
+
+<h2><b>🔭 Future Improvements</b></h2>
+
+- Test additional classification algorithms
+- Calibrate predicted probabilities
+- Optimize the classification threshold based on business costs
+- Expand hyperparameter search and cross-validation
+- Deploy the model through a Streamlit application
+
+<h2><b>📚 Dataset Credit</b></h2>
 
 Telco Customer Churn dataset (IBM sample data), available on Kaggle.
