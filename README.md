@@ -153,18 +153,6 @@ telecom-churn-analysis-and-prediction/
 └── README.md
 ```
 
-## **💡 Business Value**
-- Identify customer segments with higher churn risk
-- Understand relationships between contracts, tenure, services and billing
-- Prioritize customers who may need retention efforts
-- Provide probability-based churn predictions
-
-This is a portfolio-level analytical and predictive workflow rather than a production deployment.
-
-## **⚠️ Limitations**
-- The analysis shows relationships, not causes
-- The final model was selected using test-set results; cross-validated comparison would be more rigorous
-
 ## **🔭 Future Improvements**
 - Test additional classification algorithms
 - Calibrate predicted probabilities
